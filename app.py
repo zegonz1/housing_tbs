@@ -67,4 +67,19 @@ if st.sidebar.button("✅ Valider les caractéristiques"):
 
     user_input = pd.DataFrame([{
         "LotArea": lot_area,
-        "
+        "YearBuilt": year_built,
+        "Heating": heating,
+        "BedroomAbvGr": bedrooms_above_gr,
+        "PoolArea": pool_area,
+        "GarageCars": garage_cars,
+        "Fireplaces": fireplaces,
+        "KitchenAbvGr": kitchen_above_gr,
+        "FullBath": full_bath
+    }])
+
+    predicted_price = pipeline.predict(user_input)[0]
+
+    st.markdown("---")
+    st.markdown("<h3 style='text-align: center; color: #2E86C1;'>💰 Prix estimé de la maison :</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: center; color: #27AE60;'>{int(predicted_price):,} $</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; color: gray;'>Estimation générée à partir des données saisies.</p>", unsafe_allow_html=True)
