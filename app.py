@@ -14,7 +14,7 @@ st.set_page_config(
 )
 
 st.markdown("<h1 style='text-align: center; color: #2C3E50;'>🏡 Estimation de prix immobilier</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: gray;'>Ajustez les caractéristiques de votre bien pour obtenir une estimation du prix de vente</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: gray;'>Ajustez les caractéristiques de votre bien, puis validez pour obtenir une estimation</p>", unsafe_allow_html=True)
 st.markdown("---")
 
 # === Chargement des données ===
@@ -62,24 +62,9 @@ with col2:
     garage_cars = st.number_input("🚗 Garage (voitures)", 0, 10, 2)
     heating = st.selectbox("🔥 Type de chauffage", ["GasA", "GasW", "Grav", "Wall", "Floor", "Steam", "Hot water", "Other"])
 
-# === Préparation de l'entrée utilisateur ===
-user_input = pd.DataFrame([{
-    "LotArea": lot_area,
-    "YearBuilt": year_built,
-    "Heating": heating,
-    "BedroomAbvGr": bedrooms_above_gr,
-    "PoolArea": pool_area,
-    "GarageCars": garage_cars,
-    "Fireplaces": fireplaces,
-    "KitchenAbvGr": kitchen_above_gr,
-    "FullBath": full_bath
-}])
+# === Bouton de validation ===
+if st.sidebar.button("✅ Valider les caractéristiques"):
 
-# === Prédiction ===
-predicted_price = pipeline.predict(user_input)[0]
-
-# === Affichage du résultat ===
-st.markdown("---")
-st.markdown("<h3 style='text-align: center; color: #2E86C1;'>💰 Prix estimé de la maison :</h3>", unsafe_allow_html=True)
-st.markdown(f"<h1 style='text-align: center; color: #27AE60;'>{int(predicted_price):,} $</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: gray;'>Estimation basée sur les caractéristiques fournies.</p>", unsafe_allow_html=True)
+    user_input = pd.DataFrame([{
+        "LotArea": lot_area,
+        "
