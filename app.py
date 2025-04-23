@@ -5,7 +5,7 @@ import pandas as pd
 # === Configuration de la page ===
 st.set_page_config(page_title="Estimation de prix immobilier", page_icon="🏡", layout="centered")
 
-st.markdown("<h1 style='text-align: center; color: #2C3E50;'>🏡 Estimation de prix immobilier</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #2C3E50;'>🏡 Modèle d'IA d'estimation de prix immobilier</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: gray;'>Ajustez les caractéristiques de votre bien, puis cliquez sur <b>Valider</b> pour obtenir une estimation.</p>", unsafe_allow_html=True)
 st.markdown("---")
 
