@@ -49,6 +49,13 @@ if submit:
         "FullBath": full_bath
     }
 
+# Ligne blanche en bas de la page
+st.markdown(
+    "<hr style='border:1px solid white; margin-top: 50px;'>",
+    unsafe_allow_html=True
+)
+
+
 # === Affichage uniquement après clic ===
 if st.session_state.predict:
     user_input = pd.DataFrame([st.session_state.inputs])
