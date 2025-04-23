@@ -49,11 +49,6 @@ if submit:
         "FullBath": full_bath
     }
 
-# Ligne blanche en bas de la page
-st.markdown(
-    "<hr style='border:1px solid white; margin-top: 50px;'>",
-    unsafe_allow_html=True
-)
 
 
 # === Affichage uniquement après clic ===
@@ -65,3 +60,10 @@ if st.session_state.predict:
     st.markdown("<h3 style='text-align: center; color: #2E86C1;'>💰 Prix estimé de la maison :</h3>", unsafe_allow_html=True)
     st.markdown(f"<h1 style='text-align: center; color: #27AE60;'>{int(predicted_price):,} $</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; color: gray;'>Estimation basée sur les caractéristiques validées.</p>", unsafe_allow_html=True)
+
+# Ligne blanche en bas de la page
+st.markdown(
+    "<hr style='border:1px solid white; margin-top: 50px;'>",
+    unsafe_allow_html=True
+)
+
